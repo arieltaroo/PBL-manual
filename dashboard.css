@@ -202,15 +202,6 @@ header .image-text .header-text {
     background: #E5ECF6;
 }
 
-.sidebar .nav-link.active a {
-    background: var(--primary-color-light);
-}
-
-.sidebar .nav-link.active .icon,
-.sidebar .nav-link.active .text {
-    color: var(--active-text);
-    font-weight: 600;
-}
 
 /* bagian bawah (keluar + profil) */
 .bottom-content {
@@ -349,4 +340,7 @@ header .image-text .header-text {
     font-size: 13px;
     white-space: nowrap;
     cursor: pointer;
+}
+.search-anggota {
+    align-items: center;
 }
