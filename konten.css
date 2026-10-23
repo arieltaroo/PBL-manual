@@ -1,0 +1,56 @@
+/* konten.css — gaya isi halaman Beranda, Data Transaksi, Laporan.
+   Nilai ukuran/warna disamakan dengan data-anggota.css (tabel, tombol, modal, form).
+   Semua aturan di bawah .home supaya tidak mengganggu sidebar/topbar. */
+:root{--ok:#1E9E5A}
+/* ===== FITUR: menu aktif di sidebar ===== */
+.sidebar li.active a{background:var(--primary-color-light)}
+.sidebar li.active .icon,.sidebar li.active .text{color:var(--active-text)}
+/* ===== Judul & tata letak ===== */
+.home h1,.home h2{font-size:1.5em;font-weight:700}
+.home .sub{color:var(--text-muted);font-weight:400;margin-bottom:24px}
+.home .ph{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:24px}.home .ph .sub{margin-bottom:0}
+.home .baris{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+/* ===== Kartu & panel ===== */
+.home .kartu{flex:1;min-width:200px;border-radius:12px;padding:18px;border:1px solid var(--line)}
+.home .kartu b{display:block;font-size:24px;margin-top:6px}
+.home .hijau{background:var(--ok);color:#fff}.home .biru{background:#E3EFFD}.home .oren{background:#FDEBE0}
+.home .panel{flex:1;min-width:280px;border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff}
+/* ===== Tabel (sama dengan tabel Data Anggota) ===== */
+.home .table-wrap{background:#fff;border:1px solid var(--line);border-radius:12px;overflow-x:auto}.home .table-wrap table{min-width:640px}
+.home table{width:100%;border-collapse:collapse;font-size:14px}
+.home th{background:var(--primary-color);color:#fff;text-align:left;font-size:14px;font-weight:500;padding:16px 20px}
+.home td{padding:14px 20px;border-top:1px solid var(--line)}
+.home tbody tr:nth-child(even){background:#F9FAFB}
+.home .panel th,.home .panel td{padding:12px 14px}
+.home .masuk{color:var(--ok);font-weight:600}.home .keluarc{color:var(--danger);font-weight:600}
+.home .lbl{padding:3px 10px;border-radius:12px;font-size:12px;background:#E6F6ED;color:var(--ok)}.home .lbl.no{background:#FDEAEA;color:var(--danger)}
+.home .ikon{border:0;background:none;cursor:pointer;font-size:20px;color:var(--active-text);padding:2px 6px}
+/* ===== Tombol & form (sama dengan btn-tambah, btn-batal, btn-simpan, form-group) ===== */
+.home .btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:40px;padding:0 18px;border:0;border-radius:8px;background:var(--primary-color);color:#fff;font-size:14px;font-weight:500;white-space:nowrap;cursor:pointer;text-decoration:none}
+.home .btn.abu{background:#EEF2F7;color:var(--text-color)}
+.home input,.home select,.home textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text-color);font-size:14px}
+.home input:focus,.home select:focus,.home textarea:focus{outline:none;border-color:var(--active-text);box-shadow:0 0 0 3px var(--primary-color-light)}
+.home textarea{resize:vertical;min-height:90px}
+/* ===== FITUR: tab, filter, pagination (Data Transaksi) ===== */
+.home .tabs{display:inline-flex;background:var(--sidebar-color);padding:4px;border-radius:10px;gap:2px}
+.home .tab{padding:7px 16px;border:0;border-radius:8px;background:none;cursor:pointer;font-size:14px}.home .tab.on{background:#fff;box-shadow:0 1px 4px #0002}
+.home .n{background:var(--primary-color-light);border-radius:10px;padding:0 7px;font-size:11px;margin-left:4px}
+.home .filter{display:flex;gap:12px;flex-wrap:wrap;align-items:end;background:var(--sidebar-color);padding:12px;border-radius:12px;margin:14px 0}
+.home .filter label{font-size:12px;color:var(--text-muted);display:block;margin-bottom:3px}.home .filter div{flex:1;min-width:140px}
+/* ===== FITUR: grafik batang & progres (Beranda) ===== */
+.home .grafik{display:flex;align-items:end;gap:14px;height:170px;margin-top:10px}.home .grafik div{flex:1;text-align:center;font-size:11px}
+.home .grafik i{display:inline-block;width:42%;vertical-align:bottom;border-radius:4px 4px 0 0}
+.home .bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden;margin:6px 0 12px}.home .bar span{display:block;height:100%;background:var(--ok)}
+/* ===== FITUR: modal Catat Pemasukan / Pengeluaran (sama dengan modal Tambah Anggota) ===== */
+.home .modalbg{position:fixed;inset:0;background:rgba(17,24,39,.5);display:none;align-items:center;justify-content:center;padding:16px;z-index:1000}.home .modalbg.buka{display:flex}
+.home .modal{width:100%;max-width:540px;max-height:100%;overflow-y:auto;background:#fff;border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.2)}
+.home .mh{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;background:#F3F6FB;border-bottom:1px solid var(--line)}
+.home .modal h3{font-size:18px;font-weight:600;color:var(--text-color)}
+.home .mx{display:grid;place-items:center;background:none;border:none;font-size:26px;color:var(--text-muted);cursor:pointer}
+.home .modal .isi{padding:4px 24px 20px}
+.home .modal label{display:block;margin:16px 0 6px;font-size:14px;font-weight:500}
+.home .modal .aksi{display:flex;justify-content:flex-end;gap:10px;padding:16px 24px;border-top:1px solid var(--line)}
+.home .err{color:var(--danger);font-size:12px;min-height:16px;margin-top:8px}
+@media(max-width:768px){.home .ph{flex-direction:column;align-items:stretch}}
+@media(max-width:480px){.home .modal .aksi{flex-direction:column-reverse}.home .modal .btn{width:100%}}
+@media print{.sidebar,.topbar,.noprint{display:none}.home{margin:0;padding:0}}

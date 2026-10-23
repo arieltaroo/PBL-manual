@@ -1,0 +1,4 @@
+/* laporan.js — Laporan Kas: total, rekap per bulan, status iuran anggota */
+$('tm').textContent=rp(jml('masuk'));$('tk').textContent=rp(jml('keluar'));$('ts').textContent=rp(saldo());
+$('rekap').innerHTML=BULAN6.map(b=>{const {i,o}=perBulan(b),s=i-o;return `<tr><td>${NAMA_BULAN[b-1]} 2026</td><td>${rp(i)}</td><td>${rp(o)}</td><td class="${s<0?'keluarc':''}">${s<0?'−':''}${rp(Math.abs(s))}</td></tr>`}).join('');
+$('status').innerHTML=ANGGOTA.map(a=>{const ok=sudahBayar(a,BULAN_INI);return `<tr><td>${a.nama}</td><td><span class="lbl ${ok?'':'no'}">${ok?'Lunas':'Belum Bayar'}</span></td></tr>`}).join('');

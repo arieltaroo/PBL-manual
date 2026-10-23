@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payclass</title>
+    <!-- css -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- boxicon css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- gaya isi halaman: kartu, tabel, modal -->
+    <link rel="stylesheet" href="konten.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image"><img src="logo.png" alt="Logo PayClass"></span>
+                <div class="text header-text"><span class="name">Payclass</span><span class="profession">Kas Kelas IF-1B</span></div>
+            </div>
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <p class="menu-label">MENU</p>
+                <ul class="menu-links"><li class="nav-link"><a href="dashboard.html"><i class="bx bx-home-alt icon"></i><span class="text nav-text">Dashboard</span></a></li></ul>
+                <p class="menu-label">DATA UTAMA</p>
+                <ul class="menu-links"><li class="nav-link"><a href="data-anggota.html"><i class="bx bx-group icon"></i><span class="text nav-text">Data Anggota</span></a></li><li class="nav-link active"><a href="data-transaksi.html"><i class="bx bx-transfer icon"></i><span class="text nav-text">Data Transaksi</span></a></li></ul>
+                <ul class="menu-links menu-links-last"><li class="nav-link"><a href="laporan.html"><i class="bx bx-bar-chart-alt-2 icon"></i><span class="text nav-text">Laporan</span></a></li></ul>
+            </div>
+            <div class="bottom-content">
+                <ul><li class="logout"><a href="#"><i class="bx bx-log-out icon"></i><span class="text nav-text">Keluar</span></a></li></ul>
+                <div class="user-profile"><div class="avatar">C</div><div class="text user-info"><span class="user-name">Charisa</span><span class="user-role">Bendahara</span></div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- bilah atas (input pencarian diberi id="cari" supaya bisa dipakai di Data Transaksi) -->
+    <header class="topbar">
+        <div class="search-pill"><i class="bx bx-search"></i><input type="search" id="cari" placeholder="Cari anggota atau transaksi..."></div>
+        <div class="user-pill"><span>Charisa</span><i class="bx bx-chevron-down"></i></div>
+    </header>
+
+    <!-- isi halaman -->
+    <main class="home">
+<div class="ph"><div><h2>Data Transaksi</h2><h4 class="sub">Kelola catatan kas masuk dan keluar</h4></div>
+<span><button class="btn" onclick="buka('masuk')">+ Catat Pemasukan</button> <button class="btn abu" onclick="buka('keluar')">+ Catat Pengeluaran</button></span></div>
+<!-- ===== FITUR: Tab Semua / Pemasukan / Pengeluaran + jumlah data ===== -->
+<div class="tabs"><button class="tab on" data-t="semua">Semua<span class="n" id="n0"></span></button><button class="tab" data-t="masuk">Pemasukan<span class="n" id="n1"></span></button><button class="tab" data-t="keluar">Pengeluaran<span class="n" id="n2"></span></button></div>
+<!-- ===== FITUR: Filter tanggal & anggota (FR-05) ===== -->
+<div class="filter"><div><label>Dari</label><input type="date" id="dari"></div><div><label>Sampai</label><input type="date" id="sampai"></div><div><label>Anggota</label><select id="fa"></select></div></div>
+<!-- ===== FITUR: Tabel transaksi (plus hijau = pemasukan, minus merah = pengeluaran) ===== -->
+<div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Nama Anggota</th><th>Keterangan</th><th>Nominal</th><th>Aksi</th></tr></thead><tbody id="isi"></tbody></table></div>
+<div id="hal" style="margin-top:12px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;align-items:center"></div>
+<!-- ===== FITUR: Form pop-up Catat Pemasukan / Pengeluaran (FR-03, FR-04) ===== -->
+<div class="modalbg" id="mb"><div class="modal"><div class="mh"><h3 id="jdl"></h3><button type="button" class="mx" id="tutupx" aria-label="Tutup"><i class="bx bx-x"></i></button></div><div class="isi">
+<div id="gAng"><label>Nama Anggota</label><select id="fNim"></select></div>
+<label>Tanggal</label><input type="date" id="fTgl">
+<label>Nominal (Rp)</label><input id="fNom" inputmode="numeric" placeholder="cth. 50000">
+<div id="gBln"><label>Bulan Iuran</label><select id="fBln"></select></div>
+<div id="gKet"><label>Keterangan</label><textarea id="fKet" rows="2" placeholder="cth. Beli spidol"></textarea></div>
+<div class="err" id="err"></div></div>
+<div class="aksi"><button class="btn abu" id="batal">Batal</button><button class="btn" id="simpan">Simpan Data</button></div></div></div>
+</main>
+
+    <script src="dashboard.js"></script>
+    <script src="data.js"></script>
+    <script src="data-transaksi.js"></script>
+</body>
+</html>

@@ -8,14 +8,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    justify-content: center;
     min-height: 100vh;
     background: url(background.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
 .wrapper{
-    width: 420px;
+    width: 100%;
+    max-width: 420px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(10px);
@@ -54,10 +54,12 @@ body{
     top: 30%;
     transform: translate(-50%);
     font-size: 20px;
-    
 }
-
 .wrapper .btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     width: 100%;
     height: 45px;
     background: #fff;
@@ -69,4 +71,30 @@ body{
     font-size: 16px;
     color: #333;
     font-weight: 600;
+}
+
+/* logo */
+.logo {
+    display: block;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .25);
+}
+
+/* ikon mata password */
+#mata {
+    cursor: pointer;
+}
+
+/* tombol anggota */
+.btn-anggota {
+    margin-top: 12px;
+    background: transparent !important;
+    color: #fff !important;
+    border: 2px solid #fff !important;
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payclass</title>
+    <!-- css -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- boxicon css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- gaya isi halaman: kartu, tabel, modal -->
+    <link rel="stylesheet" href="konten.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image"><img src="logo.png" alt="Logo PayClass"></span>
+                <div class="text header-text"><span class="name">Payclass</span><span class="profession">Kas Kelas IF-1B</span></div>
+            </div>
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <!-- menu Anggota: hanya Dashboard dan Riwayat Iuran (read-only, NFR-03) -->
+                <p class="menu-label">MENU</p>
+                <ul class="menu-links"><li class="nav-link"><a href="dashboard-anggota.html"><i class="bx bx-home-alt icon"></i><span class="text nav-text">Dashboard</span></a></li><li class="nav-link active"><a href="riwayat-iuran.html"><i class="bx bx-history icon"></i><span class="text nav-text">Riwayat Iuran</span></a></li></ul>
+            </div>
+            <div class="bottom-content">
+                <ul><li class="logout"><a href="login.html"><i class="bx bx-log-out icon"></i><span class="text nav-text">Keluar</span></a></li></ul>
+                <div class="user-profile"><div class="avatar">BU</div><div class="text user-info"><span class="user-name">Budi Utomo</span><span class="user-role">Anggota</span></div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- bilah atas -->
+    <header class="topbar">
+        <div class="search-pill"><i class="bx bx-search"></i><input type="search" id="cari" placeholder="Cari riwayat iuran..."></div>
+        <!-- menu profil: klik untuk edit profil atau keluar -->
+        <div class="user-menu">
+            <div class="user-pill" id="userPill"><span id="namaTop">Budi Utomo</span><i class="bx bx-chevron-down"></i></div>
+            <div class="dropdown" id="dropdown">
+                <div class="dd-info"><b id="ddNama">Budi Utomo</b><small id="ddNim">NIM belum diisi</small></div>
+                <a href="#" id="btnEditProfil"><i class="bx bx-user"></i> Edit Profil</a>
+                <a href="login.html" class="dd-keluar"><i class="bx bx-log-out"></i> Keluar</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- isi halaman -->
+    <main class="home">
+        <div class="ph"><div><h2>Riwayat Iuran</h2><h4 class="sub">Total dibayarkan: <b id="total"></b></h4></div></div>
+        <!-- ===== FITUR: Tabel riwayat iuran saya (tanggal bisa diurutkan) + pagination ===== -->
+        <h3 class="jd" style="margin-top:0">Riwayat Iuran Saya</h3>
+        <div class="table-wrap"><table><thead><tr><th class="urut" id="urut" title="Klik untuk mengurutkan">Tanggal Pembayaran ▼</th><th>Keterangan</th><th>Status</th><th>Nominal</th></tr></thead><tbody id="isi1"></tbody></table></div>
+        <div id="hal1" class="paging"></div>
+        <!-- ===== FITUR: Tabel riwayat pengeluaran kas kelas + pagination ===== -->
+        <h3 class="jd">Riwayat Pengeluaran Kas Kelas</h3>
+        <div class="table-wrap"><table><thead><tr><th>Tanggal</th><th>Keterangan</th><th>Nominal</th></tr></thead><tbody id="isi2"></tbody></table></div>
+        <div id="hal2" class="paging"></div>
+    </main>
+
+    <!-- popup edit profil -->
+    <div class="modal-overlay" id="modalProfil">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Edit Profil</h3>
+                <button class="modal-close" id="tutupProfil" type="button"><i class="bx bx-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="inNama">Nama</label>
+                    <input type="text" id="inNama">
+                </div>
+                <div class="form-group">
+                    <label for="inNim">NIM</label>
+                    <input type="text" id="inNim">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-batal" id="batalProfil" type="button">Batal</button>
+                <button class="btn btn-simpan" id="simpanProfil" type="button">Simpan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script src="data.js"></script>
+    <script src="riwayat-iuran.js"></script>
+    <script src="profil.js"></script>
+</body>
+</html>

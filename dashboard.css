@@ -36,16 +36,16 @@ body {
 
 /* reusable css */
 .sidebar .text {
-    font-size: 14px;                
+    font-size: 14px;
     font-weight: 500;
     color: var(--text-color);
-    white-space: nowrap;            
-    opacity: 1;                     
-    transition: var(--tran-03);     
+    white-space: nowrap;
+    opacity: 1;
+    transition: var(--tran-03);
 }
 
 .sidebar .image {
-    min-width: 40px;                
+    min-width: 40px;
     display: flex;
     align-items: center;
 }
@@ -56,14 +56,14 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 240px;                   
-    padding: 0;                    
+    width: 240px;
+    padding: 0;
     background: var(--sidebar-color);
-    transition: var(--tran-03);     
-    z-index: 100;                   
+    transition: var(--tran-03);
+    z-index: 100;
 }
 
-.sidebar.close {                    
+.sidebar.close {
     width: 80px;
 }
 
@@ -72,7 +72,7 @@ body {
 }
 
 .sidebar li {
-    height: 36px;                   
+    height: 36px;
     list-style: none;
     display: flex;
     align-items: center;
@@ -82,37 +82,38 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 56px;                
+    min-width: 56px;
     font-size: 20px;
 }
 
 .sidebar li .icon,
 .sidebar li .text {
-    color: var(--text-color);       
+    color: var(--text-color);
 }
 
 .sidebar header {
     position: relative;
-    height: 60px;                   
-    padding: 0 20px;                
-    display: flex;                  
-    align-items: center;            
-    background: var(--primary-color); 
+    height: 60px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    background: var(--primary-color);
 }
 
+/* logo dibuat bulat */
 .sidebar .image-text img {
     width: 40px;
-    height: 40px;                   
-    padding: 4px;                   
-    object-fit: contain;            
-    background: #fff;               
-    border-radius: 8px;             
+    height: 40px;
+    padding: 3px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 50%;
 }
 
 .sidebar header .image-text {
     display: flex;
     align-items: center;
-    gap: 10px;                      
+    gap: 10px;
 }
 
 header .image-text .header-text {
@@ -121,38 +122,38 @@ header .image-text .header-text {
 }
 
 .header-text .name {
-    font-size: 16px;               
+    font-size: 16px;
     font-weight: 600;
-    color: #fff;                  
+    color: #fff;
 }
 
 .header-text .profession {
     margin-top: -2px;
-    font-size: 11px;              
-    font-weight: 400;               
-    color: var(--navy-muted);       
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--navy-muted);
 }
 
 .sidebar header .toggle {
     position: absolute;
     top: 50%;
-    right: -12px;                   
-    transform: translateY(-50%) rotate(180deg); 
+    right: -12px;
+    transform: translateY(-50%) rotate(180deg);
     height: 25px;
     width: 25px;
-    background: #fff;             
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    color: var(--primary-color);    
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); 
+    color: var(--primary-color);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
     font-size: 22px;
-    cursor: pointer;                
-    transition: var(--tran-03);   
+    cursor: pointer;
+    transition: var(--tran-03);
 }
 
-.sidebar.close header .toggle {     
+.sidebar.close header .toggle {
     transform: translateY(-50%);
 }
 
@@ -189,12 +190,12 @@ header .image-text .header-text {
 
 .sidebar li a {
     height: 100%;
-    width: 100%;                   
+    width: 100%;
     display: flex;
     align-items: center;
     text-decoration: none;
     border-radius: 6px;
-    transition: var(--tran-02);    
+    transition: var(--tran-02);
 }
 
 /*  hover dan menu aktif */
@@ -234,6 +235,7 @@ header .image-text .header-text {
     align-items: center;
     gap: 10px;
     padding: 14px 10px 0;
+    cursor: pointer;
 }
 
 .user-profile .avatar {
@@ -270,7 +272,7 @@ header .image-text .header-text {
 /* area isi halaman ikut bergeser saat sidebar dibuka/tutup */
 .home {
     margin-left: 240px;
-    padding: 84px 30px 24px;        
+    padding: 84px 30px 24px;
     transition: var(--tran-03);
 }
 
@@ -282,7 +284,7 @@ header .image-text .header-text {
 .topbar {
     position: fixed;
     top: 0;
-    left: 240px;                    
+    left: 240px;
     right: 0;
     height: 60px;
     padding: 0 30px;
@@ -344,3 +346,154 @@ header .image-text .header-text {
 .search-anggota {
     align-items: center;
 }
+
+/* menu profil di topbar */
+.user-menu {
+    position: relative;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 42px;
+    right: 0;
+    min-width: 200px;
+    padding: 6px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown.show {
+    display: block;
+}
+
+.dd-info {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 12px 10px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid var(--line);
+}
+
+.dd-info b {
+    font-size: 14px;
+    color: var(--text-color);
+}
+
+.dd-info small {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.dropdown a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.dropdown a:hover {
+    background: #E5ECF6;
+}
+
+.dropdown a.dd-keluar {
+    color: var(--danger);
+}
+
+/* popup edit profil (berdiri sendiri, tidak tergantung konten.css) */
+#modalProfil {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(17, 24, 39, 0.5);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    z-index: 1000;
+}
+
+#modalProfil.show {
+    display: flex;
+}
+
+#modalProfil .modal {
+    width: 100%;
+    max-width: 440px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+#modalProfil .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: #F3F6FB;
+    border-bottom: 1px solid var(--line);
+}
+
+#modalProfil .modal-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#modalProfil .modal-close {
+    display: grid;
+    place-items: center;
+    background: none;
+    border: none;
+    font-size: 26px;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+#modalProfil .modal-body {
+    padding: 20px 24px;
+}
+
+#modalProfil .form-group {
+    margin-bottom: 16px;
+}
+
+#modalProfil .form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#modalProfil .form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+#modalProfil .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 16px 24px;
+    border-top: 1px solid var(--line);
+}
+
+#modalProfil .btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#modalProfil .btn-batal  { background: #EEF2F7; color: var(--text-color); }
+#modalProfil .btn-simpan { background: var(--primary-color); color: #fff; }

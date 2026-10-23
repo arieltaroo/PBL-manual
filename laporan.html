@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payclass</title>
+    <!-- css -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- boxicon css -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- gaya isi halaman: kartu, tabel, modal -->
+    <link rel="stylesheet" href="konten.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <header>
+            <div class="image-text">
+                <span class="image"><img src="logo.png" alt="Logo PayClass"></span>
+                <div class="text header-text"><span class="name">Payclass</span><span class="profession">Kas Kelas IF-1B</span></div>
+            </div>
+            <i class="bx bx-chevron-right toggle"></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <p class="menu-label">MENU</p>
+                <ul class="menu-links"><li class="nav-link"><a href="dashboard.html"><i class="bx bx-home-alt icon"></i><span class="text nav-text">Dashboard</span></a></li></ul>
+                <p class="menu-label">DATA UTAMA</p>
+                <ul class="menu-links"><li class="nav-link"><a href="data-anggota.html"><i class="bx bx-group icon"></i><span class="text nav-text">Data Anggota</span></a></li><li class="nav-link"><a href="data-transaksi.html"><i class="bx bx-transfer icon"></i><span class="text nav-text">Data Transaksi</span></a></li></ul>
+                <ul class="menu-links menu-links-last"><li class="nav-link active"><a href="laporan.html"><i class="bx bx-bar-chart-alt-2 icon"></i><span class="text nav-text">Laporan</span></a></li></ul>
+            </div>
+            <div class="bottom-content">
+                <ul><li class="logout"><a href="#"><i class="bx bx-log-out icon"></i><span class="text nav-text">Keluar</span></a></li></ul>
+                <div class="user-profile"><div class="avatar">C</div><div class="text user-info"><span class="user-name">Charisa</span><span class="user-role">Bendahara</span></div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- bilah atas (input pencarian diberi id="cari" supaya bisa dipakai di Data Transaksi) -->
+    <header class="topbar">
+        <div class="search-pill"><i class="bx bx-search"></i><input type="search" id="cari" placeholder="Cari anggota atau transaksi..."></div>
+        <div class="user-pill"><span>Charisa</span><i class="bx bx-chevron-down"></i></div>
+    </header>
+
+    <!-- isi halaman -->
+    <main class="home">
+<div class="ph"><div><h2>Laporan Kas</h2><h4 class="sub">Rekapitulasi kas kelas per semester</h4></div>
+<!-- ===== FITUR: Pilihan semester + tombol ekspor (FR-07) ===== -->
+<span class="noprint" style="display:flex;gap:8px"><select style="width:auto"><option>Semester Ganjil 2026/2027</option></select>
+<button class="btn" style="background:#b42318" onclick="window.print()">Ekspor PDF</button><button class="btn" style="background:#1e7a46" onclick="alert('Ekspor Excel dibuat pada tahap coding (PHP).')">Ekspor Excel</button></span></div>
+<!-- ===== FITUR: Kartu Total Pemasukan, Total Pengeluaran, Saldo Akhir ===== -->
+<div class="baris"><div class="kartu biru">Total Pemasukan<b id="tm"></b></div><div class="kartu oren">Total Pengeluaran<b id="tk"></b></div><div class="kartu hijau">Saldo Akhir<b id="ts"></b></div></div>
+<div class="baris">
+<!-- ===== FITUR: Tabel rekap per bulan (selisih minus berwarna merah) ===== -->
+<div class="panel" style="flex:2"><b>Rekap per Bulan</b><table style="margin-top:10px"><thead><tr><th>Bulan</th><th>Pemasukan</th><th>Pengeluaran</th><th>Selisih</th></tr></thead><tbody id="rekap"></tbody></table></div>
+<!-- ===== FITUR: Tabel status iuran anggota bulan berjalan ===== -->
+<div class="panel"><b>Status Iuran Anggota</b><table style="margin-top:10px"><thead><tr><th>Nama</th><th>Status Okt</th></tr></thead><tbody id="status"></tbody></table></div></div>
+</main>
+
+    <script src="dashboard.js"></script>
+    <script src="data.js"></script>
+    <script src="laporan.js"></script>
+</body>
+</html>

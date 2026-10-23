@@ -8,101 +8,92 @@
     <link rel="stylesheet" href="dashboard.css">
     <!-- boxicon css -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- gaya isi halaman: kartu, tabel, modal -->
+    <link rel="stylesheet" href="konten.css">
 </head>
 <body>
     <nav class="sidebar">
         <header>
             <div class="image-text">
-                <span class="image">
-                    <img src="logo.png" alt="Logo PayClass">
-                </span>
-                <div class="text header-text">
-                    <span class="name">Payclass</span>
-                    <span class="profession">Kas Kelas IF-1B</span>
-                </div>
+                <span class="image"><img src="logo.png" alt="Logo PayClass"></span>
+                <div class="text header-text"><span class="name">Payclass</span><span class="profession">Kas Kelas IF-1B</span></div>
             </div>
-
             <i class="bx bx-chevron-right toggle"></i>
         </header>
-
         <div class="menu-bar">
             <div class="menu">
-
                 <p class="menu-label">MENU</p>
-                <ul class="menu-links">
-                    <li class="nav-link active">
-                        <a href="dashboard.html">
-                            <i class="bx bx-home-alt icon"></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                </ul>
-
+                <ul class="menu-links"><li class="nav-link active"><a href="dashboard.html"><i class="bx bx-home-alt icon"></i><span class="text nav-text">Dashboard</span></a></li></ul>
                 <p class="menu-label">DATA UTAMA</p>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="data anggota.html">
-                            <i class="bx bx-group icon"></i>
-                            <span class="text nav-text">Data Anggota</span>
-                        </a>
-                    </li>
-                    
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-transfer icon"></i>
-                            <span class="text nav-text">Data Transaksi</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <ul class="menu-links menu-links-last">
-                    <li class="nav-link">
-                        <a href="#">
-                            <i class="bx bx-bar-chart-alt-2 icon"></i>
-                            <span class="text nav-text">Laporan</span>
-                        </a>
-                    </li>
-                </ul>
+                <ul class="menu-links"><li class="nav-link"><a href="data-anggota.html"><i class="bx bx-group icon"></i><span class="text nav-text">Data Anggota</span></a></li><li class="nav-link"><a href="data-transaksi.html"><i class="bx bx-transfer icon"></i><span class="text nav-text">Data Transaksi</span></a></li></ul>
+                <ul class="menu-links menu-links-last"><li class="nav-link"><a href="laporan.html"><i class="bx bx-bar-chart-alt-2 icon"></i><span class="text nav-text">Laporan</span></a></li></ul>
             </div>
-
             <div class="bottom-content">
-                <ul>
-                    <li class="logout">
-                        <a href="#">
-                            <i class="bx bx-log-out icon"></i>
-                            <span class="text nav-text">Keluar</span>
-                        </a>
-                    </li>
-                </ul>
-                <div class="user-profile">
-                    <div class="avatar">C</div>
-                    <div class="text user-info">
-                        <span class="user-name">Charisa</span>
-                        <span class="user-role">Bendahara</span>
-                    </div>
-                </div>
+                <ul><li class="logout"><a href="login.html"><i class="bx bx-log-out icon"></i><span class="text nav-text">Keluar</span></a></li></ul>
+                <div class="user-profile"><div class="avatar">C</div><div class="text user-info"><span class="user-name">Charisa</span><span class="user-role">Bendahara</span></div></div>
             </div>
         </div>
     </nav>
 
-    <!-- bilah atas -->
+    <!-- bilah atas (input pencarian diberi id="cari" supaya bisa dipakai di Data Transaksi) -->
     <header class="topbar">
-        <div class="search-pill">
-            <i class="bx bx-search"></i>
-            <input type="search" placeholder="Cari anggota atau transaksi...">
-        </div>
-        <div class="user-pill">
-            <span>Charisa</span>
-            <i class="bx bx-chevron-down"></i>
+        <div class="search-pill"><i class="bx bx-search"></i><input type="search" id="cari" placeholder="Cari anggota atau transaksi..."></div>
+        <!-- menu profil: klik untuk edit profil atau keluar -->
+        <div class="user-menu">
+            <div class="user-pill" id="userPill"><span id="namaTop">Charisa</span><i class="bx bx-chevron-down"></i></div>
+            <div class="dropdown" id="dropdown">
+                <div class="dd-info"><b id="ddNama">Charisa</b><small id="ddNim">NIM belum diisi</small></div>
+                <a href="#" id="btnEditProfil"><i class="bx bx-user"></i> Edit Profil</a>
+                <a href="login.html" class="dd-keluar"><i class="bx bx-log-out"></i> Keluar</a>
+            </div>
         </div>
     </header>
 
     <!-- isi halaman -->
     <main class="home">
-        <h1>Beranda</h1>
-    </main>
+<h1>Beranda</h1><h4 class="sub">Ringkasan kas kelas IF-1B</h4>
+<!-- ===== FITUR: Kartu Saldo, Total Pemasukan, Total Pengeluaran (FR-06) ===== -->
+<div class="baris"><div class="kartu hijau">Saldo Kas Saat Ini<b id="saldo"></b><small>Diperbarui otomatis</small></div>
+<div class="kartu biru">Total Pemasukan<b id="masuk"></b></div><div class="kartu oren">Total Pengeluaran<b id="keluar"></b></div></div>
+<div class="baris">
+<!-- ===== FITUR: Grafik Pemasukan vs Pengeluaran 6 bulan terakhir ===== -->
+<div class="panel" style="flex:2"><b>Pemasukan vs Pengeluaran</b> <small>6 bulan terakhir</small>
+<small style="float:right"><span style="color:#3b82f6">■</span> Pemasukan <span style="color:#f08a4b">■</span> Pengeluaran</small><div class="grafik" id="grafik"></div></div>
+<!-- ===== FITUR: Status iuran bulan berjalan + daftar yang belum bayar ===== -->
+<div class="panel"><b>Status Iuran Oktober</b><p id="ringkas" style="margin:6px 0 0"></p><div class="bar"><span id="progres"></span></div><div id="belum"></div></div></div>
+<!-- ===== FITUR: Ringkasan transaksi terbaru + tombol catat (FR-03, FR-04) ===== -->
+<div class="panel"><div class="ph" style="margin-bottom:10px"><b>Ringkasan Transaksi Terbaru</b>
+<span><a class="btn" href="data-transaksi.html?aksi=masuk">+ Catat Pemasukan</a> <a class="btn abu" href="data-transaksi.html?aksi=keluar">+ Catat Pengeluaran</a></span></div>
+<table><thead><tr><th>Tanggal</th><th>Jenis</th><th>Nama Anggota</th><th>Keterangan</th><th>Nominal</th></tr></thead><tbody id="isi"></tbody></table></div>
+</main>
+
+    <!-- popup edit profil -->
+    <div class="modal-overlay" id="modalProfil">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Edit Profil</h3>
+                <button class="modal-close" id="tutupProfil" type="button"><i class="bx bx-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="inNama">Nama</label>
+                    <input type="text" id="inNama">
+                </div>
+                <div class="form-group">
+                    <label for="inNim">NIM</label>
+                    <input type="text" id="inNim">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-batal" id="batalProfil" type="button">Batal</button>
+                <button class="btn btn-simpan" id="simpanProfil" type="button">Simpan</button>
+            </div>
+        </div>
+    </div>
 
     <script src="dashboard.js"></script>
-
+    <script src="data.js"></script>
+    <script src="dashboard-isi.js"></script>
+    <script src="profil.js"></script>
 </body>
 </html>
